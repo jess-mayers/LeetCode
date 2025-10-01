@@ -1,3 +1,10 @@
+"""
+Time Complexity:
+    Best Case: O(1)
+    Worst Case: O(N)
+    Average Case: O(N)
+"""
+
 def linear_search(l: list, target: int) -> int:
     for i, v in enumerate(l):
         if v == target:

@@ -1,6 +1,7 @@
 """
-Time Complexity: O(n²)
+    Time Complexity: O(n²)
 """
+
 def selection_sort(l: list) -> list:
     n = len(l)
     for i in range(n):

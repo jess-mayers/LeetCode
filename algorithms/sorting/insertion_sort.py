@@ -1,8 +1,8 @@
 """
 Time Complexity
-    Best case: O(n), If the list is already sorted, where n is the number of elements in the list.
-    Average case: O(n²), If the list is randomly ordered
-    Worst case: O(n²), If the list is in reverse order
+    Best case: O(n) - The list is already sorted.
+    Average case: O(n²) - If the list is randomly ordered.
+    Worst case: O(n²) - When the list is in reverse order.
 """
 
 def insertion_sort(l: list) -> list:

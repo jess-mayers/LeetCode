@@ -4,6 +4,7 @@ Time Complexity:
     Average Case (θ(n log n)), On average, the pivot divides the array into two parts, but not necessarily equal.
     Worst Case: (O(n²)), Occurs when the smallest or largest element is always chosen as the pivot (e.g., sorted arrays).
 """
+
 def swap(l, i, j):
     l[i], l[j] = l[j], l[i]
 

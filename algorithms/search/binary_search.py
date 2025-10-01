@@ -1,3 +1,10 @@
+"""
+Time Complexity:
+    Best Case: O(1)
+    Average Case: O(log N)
+    Worst Case: O(log N)
+"""
+
 def binary_search(l: list, target: int) -> int:
     low = 0
     high = len(l) - 1
