@@ -2,7 +2,7 @@ import random
 import unittest
 
 from data_structures.linked_list import LinkedList
-from data_structures.tree import Tree
+from data_structures.binary_tree import BinaryTree
 
 class TestLinkedList(unittest.TestCase):
     ##########
