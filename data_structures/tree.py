@@ -7,3 +7,7 @@ class TreeNode:
 class Tree:
     def __init__(self, root: TreeNode = None):
         self.root = root
+
+class BinarySearchTree:
+    def __init__(self, root: TreeNode = None):
+        self.root = root

@@ -8,13 +8,7 @@ class Node:
 
 class LinkedList:
     def __init__(self, head: Node = None):
-        if isinstance(head, Node):
-            self.head = head
-        elif head is not None:
-            # create new node based on value
-            self.head = Node(val=head)
-        else:
-            self.head = head
+        self.head = head
 
     def __str__(self):
         return ' '.join(self.values)
