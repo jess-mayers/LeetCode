@@ -79,12 +79,12 @@ class BinarySearchTree(BinaryTree):
 class BinarySearchTreeFactory:
     @staticmethod
     def build_from_inorder(l: list) -> BinarySearchTree:
-        pass
+        pass # TODO
 
     @staticmethod
     def build_from_preorder(l: list) -> BinarySearchTree:
-        pass
+        pass # TODO
 
     @staticmethod
     def build_from_postorder(l: list) -> BinarySearchTree:
-        pass
+        pass # TODO
