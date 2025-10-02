@@ -4,3 +4,6 @@ class TreeNode:
         self.left = left
         self.right = right
 
+class Tree:
+    def __init__(self, root: TreeNode = None):
+        self.root = root
