@@ -8,6 +8,6 @@ class Tree:
     def __init__(self, root: TreeNode = None):
         self.root = root
 
-class BinarySearchTree:
+class BinarySearchTree(Tree):
     def __init__(self, root: TreeNode = None):
-        self.root = root
+        super().__init__(root)
