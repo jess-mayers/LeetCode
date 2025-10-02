@@ -6,21 +6,17 @@ class Node:
     def __next__(self):
         return self.next
 
-    def __str__(self):
-        # get remaining items in list
-        values = []
-        node = self
-        while node is not None:
-            values.append(node.val)
-            node = node.next
-        return ', '.join(values)
-
 class LinkedList:
     def __init__(self, head: Node = None):
         self.head = head
 
     def __str__(self):
-        return self.head.__str__()
+        values = []
+        current = self.head
+        while current:
+            values.append(current.val)
+            current = current.next
+        return ' -> '.join(values)
 
     def append(self, val):
         node = Node(val=val)
