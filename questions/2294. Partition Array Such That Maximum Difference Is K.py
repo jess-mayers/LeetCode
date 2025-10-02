@@ -20,7 +20,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    from utils import validate
+    from questions.utils import validate
     s = Solution()
     # result, expected
     validate(s.partitionArray([2, 0], 1), 2)

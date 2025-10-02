@@ -48,7 +48,7 @@ class LinkedList:
         last_node.next = node
 
     def get_index(self, index: int) -> Node:
-        if not isinstance(index, int) or index <= 0:
+        if not isinstance(index, int) or index < 0:
             raise IndexError('index must be an int greater than or equal to 0')
         if self.head is None:
             raise IndexError('Cannot get index from empty list')
@@ -62,8 +62,22 @@ class LinkedList:
         return current
 
     def insert(self, index: int, val: int = None):
+        if index < 0:
+            raise IndexError('index must be greater than or equal to 0')
+
         new_node = Node(val=val)
-        # TODO
+        if index == 0:
+            # prepend
+            new_node.next = self.head
+            self.head = new_node
+            return
+        if self.head is None:
+            raise IndexError('Cannot get index from empty list')
+        # get previous index
+        previous = self.get_index(index - 1)
+        if next_node := previous.next:
+            previous.next, new_node.next = new_node, next_node
+
 
     def pop(self, index: int = None):
         if self.head is None:

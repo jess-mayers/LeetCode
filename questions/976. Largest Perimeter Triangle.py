@@ -1,7 +1,6 @@
-import itertools
 from typing import List
 
-from utils import validate
+from questions.utils import validate
 
 class Solution:
     @staticmethod
