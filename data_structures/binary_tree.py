@@ -75,3 +75,16 @@ class BinarySearchTree(BinaryTree):
     def insert(self, val: int):
         # TODO
         pass
+
+class BinarySearchTreeFactory:
+    @staticmethod
+    def build_from_inorder(l: list) -> BinarySearchTree:
+        pass
+
+    @staticmethod
+    def build_from_preorder(l: list) -> BinarySearchTree:
+        pass
+
+    @staticmethod
+    def build_from_postorder(l: list) -> BinarySearchTree:
+        pass
