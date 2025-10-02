@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, val = None, next = None):
+    def __init__(self, val: int = None, next = None):
         self.val = val
         self.next = next
 
@@ -8,17 +8,34 @@ class Node:
 
 class LinkedList:
     def __init__(self, head: Node = None):
-        self.head = head
+        if isinstance(head, Node):
+            self.head = head
+        elif head is not None:
+            # create new node based on value
+            self.head = Node(val=head)
+        else:
+            self.head = head
 
     def __str__(self):
+        return ' '.join(self.values)
+
+    def __len__(self):
+        return len(self.values)
+
+    @property
+    def size(self) -> int:
+        return self.__len__()
+
+    @property
+    def values(self) -> list:
         values = []
         current = self.head
         while current:
             values.append(current.val)
             current = current.next
-        return ' -> '.join(values)
+        return values
 
-    def append(self, val):
+    def append(self, val: int):
         node = Node(val=val)
         if self.head is None:
             self.head = node
@@ -29,6 +46,24 @@ class LinkedList:
         while last_node.next:
             last_node = last_node.next
         last_node.next = node
+
+    def get_index(self, index: int) -> Node:
+        if not isinstance(index, int) or index <= 0:
+            raise IndexError('index must be an int greater than or equal to 0')
+        if self.head is None:
+            raise IndexError('Cannot get index from empty list')
+
+        current = self.head
+        while current and index > 0:
+            current = current.next
+            index -= 1
+        if current is None:
+            raise IndexError('Index out of range')
+        return current
+
+    def insert(self, index: int, val: int = None):
+        new_node = Node(val=val)
+        # TODO
 
     def pop(self, index: int = None):
         if self.head is None:
