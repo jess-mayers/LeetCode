@@ -48,11 +48,24 @@ class BinaryTree:
         return self.__postorder(self.root)
 
     @staticmethod
-    def __level_order(node: Node, level: int) -> list:
-        pass # TODO
+    def __level_order(node: Node, level: int, level_to_vals: dict) -> list:
+        if node is None:
+            return
+        # add list if index does not exist
+        if not level_to_vals.get(level):
+            level_to_vals[level] = []
 
-    def level_order(self):
-        return self.__level_order(self.root, 0)
+        level_to_vals[level].append(node.val)
+        BinaryTree.__level_order(node.left, level + 1, level_to_vals)
+        BinaryTree.__level_order(node.right, level + 1, level_to_vals)
+
+    def level_order(self) -> list:
+        level_to_vals = {}
+        self.__level_order(self.root, 0, level_to_vals)
+        level_order = []
+        for level in sorted(level_to_vals):
+            level_order.extend(level_to_vals[level])
+        return level_order
 
 
 class BinarySearchTree(BinaryTree):
