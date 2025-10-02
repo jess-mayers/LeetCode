@@ -48,11 +48,11 @@ class BinaryTree:
         return self.__postorder(self.root)
 
     @staticmethod
-    def __level_order(node: Node) -> list:
+    def __level_order(node: Node, level: int) -> list:
         pass # TODO
 
     def level_order(self):
-        return self.__level_order(self.root)
+        return self.__level_order(self.root, 0)
 
 
 class BinarySearchTree(BinaryTree):
