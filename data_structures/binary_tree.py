@@ -96,14 +96,50 @@ class BinarySearchTree(BinaryTree):
             prev.right = new_node
 
 class BinarySearchTreeFactory:
+    #############
+    # InOrder
+    #############
     @staticmethod
-    def build_from_inorder(l: list) -> BinarySearchTree:
-        pass # TODO
+    def build_from_inorder(inorder: list) -> Node:
+        if len(inorder) == 0:
+            return None
+        i = inorder.index(max(inorder))
+        root = Node(val=inorder[i])
+        if len(inorder) == 1:
+            return root
+        # recurse
+        root.left = BinarySearchTreeFactory.build_from_inorder(inorder[:i])
+        root.right = BinarySearchTreeFactory.build_from_inorder(inorder[i+1:])
+        return root
 
+    #############
+    # PreOrder
+    #############
     @staticmethod
-    def build_from_preorder(l: list) -> BinarySearchTree:
-        pass # TODO
+    def build_from_preorder(preorder: list) -> Node:
+        if len(preorder) == 0:
+            return None
+        root = Node(val=preorder[0])
+        if len(preorder) == 1:
+            return root
+        # find split point
+        i = 1
+        while i < len(preorder) and preorder[i] < root.val:
+            i += 1
+        # recurse
+        root.left = BinarySearchTreeFactory.build_from_preorder(preorder[1:i])
+        root.right = BinarySearchTreeFactory.build_from_preorder(preorder[i:])
+        return root
 
+
+
+    #############
+    # PostOrder
+    #############
     @staticmethod
-    def build_from_postorder(l: list) -> BinarySearchTree:
-        pass # TODO
+    def build_from_postorder(postorder: list) -> Node:
+        if len(postorder) == 0:
+            return None
+        root = Node(postorder[0])
+        if len(postorder) == 1:
+            return root
