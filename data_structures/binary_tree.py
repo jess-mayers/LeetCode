@@ -72,8 +72,28 @@ class BinarySearchTree(BinaryTree):
         super().__init__(root)
 
     def insert(self, val: int):
-        # TODO
-        pass
+        new_node = Node(val=val)
+        if self.root is None:
+            self.root = new_node
+            return
+        prev = None
+        curr = self.root
+        while curr is not None:
+            prev = curr
+            if val < curr.val:
+                curr = curr.left
+            elif val > curr.val:
+                curr = curr.right
+            else:
+                # no duplicate values allowed
+                raise ValueError('Duplicate value detecting in BST')
+
+        if val < prev.val:
+            # add to left
+            prev.left = new_node
+        elif val > prev.val:
+            # add to right
+            prev.right = new_node
 
 class BinarySearchTreeFactory:
     @staticmethod
