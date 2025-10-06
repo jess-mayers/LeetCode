@@ -1,10 +1,8 @@
 import random
 import unittest
 
-from data_structures.linked_list import LinkedList
-from data_structures.binary_tree import BinaryTree
-
 class TestLinkedList(unittest.TestCase):
+    from data_structures.linked_list import LinkedList
     ##########
     # Config
     ##########
@@ -14,7 +12,7 @@ class TestLinkedList(unittest.TestCase):
     DEFAULT_MAX_VAL = 1000
     DEFAULT_ATTEMPTS = 5
     def setUp(self):
-        self.linked_list = LinkedList()
+        self.linked_list = self.LinkedList()
 
     @staticmethod
     def get_random_index(l: list | LinkedList) -> int:
@@ -94,6 +92,38 @@ class TestLinkedList(unittest.TestCase):
             self.linked_list.remove(random_idx)
             self.assertEqual(len(l) - (i+1), len(self.linked_list))
 
-class TestTree(unittest.TestCase):
+class TestBinaryTree(unittest.TestCase):
     pass # TODO
+
+class TestBinarySearchTree(unittest.TestCase):
+    from data_structures.binary_tree import Node, BinarySearchTree
+    ##########
+    # Config
+    ##########
+    DEFAULT_SIZE = 50
+    DEFAULT_MIN_VAL = 0
+    DEFAULT_MAX_VAL = 1000
+
+    def setUp(self):
+        self.bst = self.BinarySearchTree(root=None)
+        for i in random.sample(range(self.DEFAULT_MIN_VAL, self.DEFAULT_MAX_VAL), self.DEFAULT_SIZE):
+            self.bst.insert(i)
+        self.assertTrue(self.bst.valid)
+
+    def test_generated_bst(self):
+        # validate all nodes are equal
+        self.assertTrue(self.bst.valid)
+        # validate no duplicates
+        self.assertEqual(len(set(self.bst.inorder())), len(self.bst.inorder()))
+
+    def test_insert(self, inserts: int = 20):
+        inorder = self.bst.inorder()
+        sample_range = set(range(self.DEFAULT_MIN_VAL, self.DEFAULT_MAX_VAL))
+        # remove data from sample that is already in the tree
+        sample_range = list(sample_range - set(inorder))
+        self.assertGreaterEqual(len(sample_range), inserts)
+        for i in random.sample(sample_range, inserts):
+            self.bst.insert(i)
+        self.assertTrue(self.bst.valid)
+
 

@@ -95,6 +95,20 @@ class BinarySearchTree(BinaryTree):
             # add to right
             prev.right = new_node
 
+    @staticmethod
+    def is_valid(node: Node, min_val: int = float('-inf'), max_val: int = float('inf')) -> bool:
+        if node is None:
+            return True
+        if node.val < min_val or node.val > max_val:
+            return False
+        # recurse
+        return BinarySearchTree.is_valid(node.left, min_val, node.val + 1) and BinarySearchTree.is_valid(node.right, node.val + 1, max_val)
+
+    @property
+    def valid(self) -> bool:
+        return self.is_valid(self.root)
+
+
 class BinarySearchTreeFactory:
     #############
     # InOrder
