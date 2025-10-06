@@ -131,8 +131,6 @@ class BinarySearchTreeFactory:
         root.right = BinarySearchTreeFactory.build_from_preorder(preorder[i:])
         return root
 
-
-
     #############
     # PostOrder
     #############
@@ -143,3 +141,4 @@ class BinarySearchTreeFactory:
         root = Node(postorder[0])
         if len(postorder) == 1:
             return root
+        # TODO
