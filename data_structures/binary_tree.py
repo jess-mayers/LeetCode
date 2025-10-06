@@ -48,13 +48,12 @@ class BinaryTree:
         return self.postorder_traversal(self.root)
 
     @staticmethod
-    def level_order_traversal(node: Node, level: int, level_to_vals: dict) -> list:
+    def level_order_traversal(node: Node, level: int, level_to_vals: dict):
         if node is None:
             return
         # add list if index does not exist
         if not level_to_vals.get(level):
             level_to_vals[level] = []
-
         level_to_vals[level].append(node.val)
         BinaryTree.level_order_traversal(node.left, level + 1, level_to_vals)
         BinaryTree.level_order_traversal(node.right, level + 1, level_to_vals)
