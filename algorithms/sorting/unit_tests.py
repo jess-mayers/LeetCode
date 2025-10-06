@@ -18,31 +18,31 @@ class TestQuickSort(AbstractTestSortingAlgorithms):
         from algorithms.sorting.quick_sort import quick_sort
         sorted_l = quick_sort(self.l)
         self.assertTrue(is_sorted(sorted_l))
-        self.assertTrue(sorted_l == sorted(self.l))
+        self.assertEqual(sorted_l, sorted(self.l))
 
 class TestSelectionSort(AbstractTestSortingAlgorithms):
     def test_sort(self):
         from algorithms.sorting.selection_sort import selection_sort
         sorted_l = selection_sort(self.l)
         self.assertTrue(is_sorted(sorted_l))
-        self.assertTrue(sorted_l == sorted(self.l))
+        self.assertEqual(sorted_l, sorted(self.l))
 
 class TestInsertionSort(AbstractTestSortingAlgorithms):
     def test_sort(self):
         from algorithms.sorting.insertion_sort import insertion_sort
         sorted_l = insertion_sort(self.l)
         self.assertTrue(is_sorted(sorted_l))
-        self.assertTrue(sorted_l == sorted(self.l))
+        self.assertEqual(sorted_l, sorted(self.l))
 
 class TestBubbleSort(AbstractTestSortingAlgorithms):
     def test_sort(self):
         from algorithms.sorting.bubble_sort import bubble_sort
         sorted_l = bubble_sort(self.l)
         self.assertTrue(is_sorted(sorted_l))
-        self.assertTrue(sorted_l == sorted(self.l))
+        self.assertEqual(sorted_l, sorted(self.l))
 
     def test_sort_recursion(self):
         from algorithms.sorting.bubble_sort import bubble_sort_recursion
         sorted_l = bubble_sort_recursion(self.l)
         self.assertTrue(is_sorted(sorted_l))
-        self.assertTrue(sorted_l == sorted(self.l))
+        self.assertEqual(sorted_l, sorted(self.l))
