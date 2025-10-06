@@ -66,7 +66,6 @@ class BinaryTree:
             level_order.extend(level_to_vals[level])
         return level_order
 
-
 class BinarySearchTree(BinaryTree):
     def __init__(self, root: Node = None):
         super().__init__(root)
